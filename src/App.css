@@ -1,0 +1,64 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #212129;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 0.2vw);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.rt-td {
+  white-space: normal !important;
+}
+.rt-thead.-filters {
+
+}
+.rt-thead.-header {
+
+}
+.ReactTable .pagination-bottom {
+
+}
+.ReactTable .-pagination .-btn {
+  background: rgb(207, 206, 212);
+}
+.ReactTable .rt-table .rt-tbody{
+  overflow-x: hidden;
+}
+
+.ReactTable .rt-table .rt-tbody .rt-tr-group .rt-tr.-odd {
+  background: rgba(243, 241, 255, 0.048);
+}
+
+.ReactTable .rt-thead .rt-th.-sort-asc {
+  box-shadow: inset 0 3px 0 0 rgb(207, 206, 212, 0.4);;
+}
+.ReactTable .rt-thead .rt-th.-sort-desc {
+  box-shadow: inset 0 -3px 0 0 rgb(207, 206, 212, 0.4);
+}
+.ReactTable .rt-thead .rt-th.-sort-asc::after {
+  content: url("/up.svg");
+  position: absolute;
+  top: calc(50% - 9px);
+  right: 0px;
+}
+.ReactTable .rt-thead .rt-th.-sort-desc::after {
+  content: url("/down.svg");
+  position: absolute;
+  top: calc(50% - 5px);
+  right: 0px;
+}
