@@ -105,7 +105,7 @@ class TitleList extends React.Component {
         accessor: 'goal',
         minWidth: 250,
         filterMethod: genFilter((val, filter, row)=>{
-          return (val && val.includes(filter)) || (row._original && row._original.Tags && _.indexOf(row._original.Tags, filter) >= 0)
+          return (val && val.includes(filter)) || (row._original && row._original.tags && _.indexOf(row._original.tags, filter) >= 0)
         })
       },
       {
