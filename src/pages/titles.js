@@ -38,6 +38,12 @@ class TitleList extends React.Component {
         titles.then(data => {
         data = data.json().then(data => {
             _.forEach(data, (r)=>{
+              _.forEach(r, (value, key) => {
+                if (value === null){
+                  delete r[key];
+                }
+              })
+              
             if (!r.Char) {
                 r.Char = "All"
             }
@@ -45,6 +51,7 @@ class TitleList extends React.Component {
                 r.Tags = _.map(r.Tags, sanitize)
             }
             })
+            //console.log(JSON.stringify(data));
             cache.titles = data.slice();
             this.setState({titles: cache.titles})
         }, this.reject)
@@ -68,9 +75,9 @@ class TitleList extends React.Component {
     
     const columns = [
       {
-        id: "Account",
-        Header: "ID",
-        accessor: 'Account',
+        id: "shared",
+        Header: "id",
+        accessor: 'shared',
         maxWidth: 60,
         filterable: false,
         Cell: ({original: prop})=> {
@@ -78,34 +85,34 @@ class TitleList extends React.Component {
         resizable: false,
       },
       {
-        id: "Title",
+        id: "title",
         Header: "Title",
         filterable: true,
-        accessor: 'Title',
+        accessor: 'title',
         minWidth: 250,
       },
       {
-        id: "Desc",
+        id: "desc",
         Header: "Description",
         filterable: true,
-        accessor: 'Desc',
+        accessor: 'desc',
         minWidth: 350,
       },
       {
-        id: "Obtain",
+        id: "goal",
         Header: "How to Obtain",
         filterable: true,
-        accessor: 'Obtain',
+        accessor: 'goal',
         minWidth: 250,
         filterMethod: genFilter((val, filter, row)=>{
           return (val && val.includes(filter)) || (row._original && row._original.Tags && _.indexOf(row._original.Tags, filter) >= 0)
         })
       },
       {
-        id: "Char",
+        id: "chars",
         Header: "Character Required",
         filterable: true,
-        accessor: 'Char',
+        accessor: 'chars',
         minWidth: 150,
         /*filterMethod: genFilter((val, filter)=>{
           return !val || val === "" ||
@@ -113,68 +120,76 @@ class TitleList extends React.Component {
         }),*/
       },
       {
-        id: "STR",
+        id: "str",
         Header: "Str",
         filterable: false,
         resizable: false,
         maxWidth: 40,
-        accessor: 'STR',
+        accessor: 'str',
       },
       {
-        id: "DEX",
+        id: "agi",
         Header: "Agi",
         filterable: false,
         resizable: false,
         maxWidth: 40,
-        accessor: 'DEX',
+        accessor: 'agi',
       },
       {
-        id: "INT",
+        id: "int",
         Header: "Int",
         filterable: false,
         resizable: false,
         maxWidth: 40,
-        accessor: 'INT',
+        accessor: 'int',
       },
       {
-        id: "WILL",
+        id: "wil",
         Header: "Wil",
         filterable: false,
         resizable: false,
         maxWidth: 40,
-        accessor: 'WILL',
+        accessor: 'wil',
       },
       {
-        id: "ATK",
+        id: "hp",
+        Header: "HP",
+        filterable: false,
+        resizable: false,
+        maxWidth: 40,
+        accessor: 'hp',
+      },
+      {
+        id: "atk",
         Header: "Atk",
         filterable: false,
         resizable: false,
         maxWidth: 60,
-        accessor: 'ATK',
+        accessor: 'atk',
       },
       {
-        id: "MATK",
+        id: "matk",
         Header: "M.Atk",
         filterable: false,
         resizable: false,
         maxWidth: 60,
-        accessor: 'MATK',
+        accessor: 'matk',
       },
       {
-        id: "BAL",
+        id: "bal",
         Header: "Bal",
         filterable: false,
         resizable: false,
         maxWidth: 40,
-        accessor: 'BAL',
+        accessor: 'bal',
       },
       {
-        id: "CRIT",
+        id: "cri",
         Header: "Crit",
         filterable: false,
         resizable: false,
         maxWidth: 40,
-        accessor: 'CRIT',
+        accessor: 'cri',
       },
       {
         filterable: false,
