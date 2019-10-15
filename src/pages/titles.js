@@ -47,8 +47,8 @@ class TitleList extends React.Component {
             if (!r.Char) {
                 r.Char = "All"
             }
-            if (r.Tags) {
-                r.Tags = _.map(r.Tags, sanitize)
+            if (r.tags) {
+                r.tags = _.map(r.tags, sanitize)
             }
             })
             //console.log(JSON.stringify(data));
@@ -184,12 +184,12 @@ class TitleList extends React.Component {
         accessor: 'bal',
       },
       {
-        id: "cri",
+        id: "crit",
         Header: "Crit",
         filterable: false,
         resizable: false,
         maxWidth: 40,
-        accessor: 'cri',
+        accessor: 'crit',
       },
       {
         filterable: false,
